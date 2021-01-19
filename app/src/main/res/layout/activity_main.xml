@@ -1,145 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorYellow"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:orientation="horizontal"
+    android:id="@+id/backgroundview"
+    >
 
-    <TextView
-        android:id="@+id/description"
-        android:layout_width="374dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="39dp"
-        android:hint="description"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tempmax2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/main"
-        android:layout_width="370dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="27dp"
-        android:hint="main situation"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        <Button
+            android:id="@+id/searchbutton"
+            android:layout_width="100dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/colorAccent"
+            android:onClick="TakeData"
+            android:text="search"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="300dp"
+            />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="32dp"
-        android:onClick="TakeData"
-        android:text="search"
-        app:layout_constraintBottom_toTopOf="@+id/main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:layout_constraintTop_toTopOf="parent" />
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="272dp"
+            android:layout_height="44dp"
+            android:completionThreshold="1"
+            android:ems="10"
+            android:hint="enter city name"
+            android:inputType="textPersonName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="23dp"
-        android:ems="10"
-        android:hint="city name"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button" />
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="description"
+            android:textSize="18sp"
+            android:layout_marginTop="140dp"
+            android:layout_marginLeft="20dp"
 
-    <TextView
-        android:id="@+id/temperature"
-        android:layout_width="0dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="24dp"
-        android:hint="temperature"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tempmax2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.514" />
+            />
 
-    <TextView
-        android:id="@+id/pressure"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginEnd="29dp"
-        android:layout_marginBottom="28dp"
-        android:hint="pressure"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/humidity"
-        app:layout_constraintEnd_toStartOf="@+id/tempmax"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tempmax2" />
+        <TextView
+            android:id="@+id/main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="main situation"
+            android:textSize="18sp"
+            android:layout_marginTop="100dp"
+            android:layout_marginLeft="20dp"
+            />
 
-    <TextView
-        android:id="@+id/tempmin"
-        android:layout_width="0dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="216dp"
-        android:layout_marginEnd="34dp"
-        android:hint="temperature min"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/humidity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/humidity"
-        app:layout_constraintStart_toStartOf="parent" />
+        <TextView
+            android:id="@+id/tempmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="temperature min"
+            android:textSize="18sp"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="30dp" />
 
-    <TextView
-        android:id="@+id/tempmax"
-        android:layout_width="0dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="27dp"
-        android:hint="temperature max"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/tempmin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pressure"
-        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/weathericon"
+            android:layout_marginTop="250dp"
+            android:layout_marginLeft="150dp"
+            android:src="@drawable/cloudcomputing"
+            >
 
-    <TextView
-        android:id="@+id/tempmax2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="36dp"
-        android:hint="feels like"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/pressure"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/temperature"
-        app:layout_constraintTop_toBottomOf="@+id/description" />
+        </ImageView>
 
-    <TextView
-        android:id="@+id/humidity"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="100dp"
-        android:hint="humidity"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tempmin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pressure" />
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="temperature"
+            android:textSize="30sp"
+            android:layout_marginTop="400dp"
+            android:layout_marginLeft="100dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+             />
+
+        <TextView
+            android:id="@+id/tempmax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="temperature max"
+            android:textSize="18sp"
+            android:layout_marginTop="470dp"
+            android:layout_marginLeft="30dp"
+
+            />
+
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="pressure"
+                android:textSize="24sp"
+                android:layout_marginTop="520dp"
+                android:layout_marginLeft="30dp"
+
+                />
+
+            <TextView
+                android:id="@+id/tempmax2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="feels like"
+                android:textSize="24sp"
+                android:layout_marginTop="520dp"
+                android:layout_marginLeft="270dp" />
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="humidity"
+                android:textSize="18sp"
+                android:layout_marginTop="520dp"
+                android:layout_marginLeft="160dp"/>
+
+        </RelativeLayout>
+
+</LinearLayout>
