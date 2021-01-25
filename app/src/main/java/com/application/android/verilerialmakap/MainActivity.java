@@ -1,22 +1,19 @@
-package com.example.verilerialmakap;
+package com.application.android.verilerialmakap;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -28,10 +25,11 @@ public class MainActivity extends AppCompatActivity
 {
     TextView description, temp, pressure,humidity, tempMin,tempMax,mainDescription,Feels_Like;
     EditText editText;
-    String cityName;
+    String cityName,temperature,basinc,aciklama,nem,minumum,maximum;
     Button search;
     ImageView instantweathericon;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -49,21 +47,34 @@ public class MainActivity extends AppCompatActivity
         instantweathericon = findViewById(R.id.weathericon);
         instantweathericon.setImageResource(R.drawable.cloudcomputing);
 
-        search = findViewById(R.id.searchbutton);
-
         editText = findViewById(R.id.editText);
         cityName = editText.getText().toString();
 
         editText.setText("istanbul");
 
-        editText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                VerierCed ced = new VerierCed();
-                ced.execute();
+    }
 
-            }
-        });
+    public void MyFavoriteScreen(View view){
+        Intent intent = new Intent(MainActivity.this,MyFavoritesActivity.class);
+        startActivity(intent);
+    }
+
+    public void AddMyFavorite(View view){
+        GetTextView();
+
+
+    }
+
+    public void GetTextView(){
+
+        cityName = editText.getText().toString();
+        temperature = temp.getText().toString();
+        basinc = pressure.getText().toString();
+        aciklama = description.getText().toString();
+        nem = humidity.getText().toString();
+        minumum = tempMin.getText().toString();
+        maximum = tempMax.getText().toString();
+
     }
 
     public void TakeData(View view)
@@ -79,13 +90,13 @@ public class MainActivity extends AppCompatActivity
             cityName = editText.getText().toString();
         }
 
-        VerierCed verierCed = new VerierCed();
-        verierCed.execute();
+        GetDataFromService getDataFromService = new GetDataFromService();
+        getDataFromService.execute();
 
     }
 
     @SuppressLint("StaticFieldLeak")
-    class VerierCed extends AsyncTask<Void, Void, String>
+    class GetDataFromService extends AsyncTask<Void, Void, String>
     {
         @Override
         protected String doInBackground(Void... voids)
@@ -192,8 +203,8 @@ public class MainActivity extends AppCompatActivity
                 String Feels_Like2 = String.valueOf(newFellsLike2);
 
                 Feels_Like.setText("Feels Like:"+" "+Feels_Like2 + "˚C");
-                humidity.setText("%" + humidity1);
-                pressure.setText(pressure1 + "hPa");
+                humidity.setText("Humidity:"+" "+"%" + humidity1);
+                pressure.setText("Pressure:"+pressure1 + "hPa");
                 description.setText("Description:" + description1);
                 mainDescription.setText("Weather:" + main);
 
@@ -202,6 +213,5 @@ public class MainActivity extends AppCompatActivity
             }
         }
     }
-
 
 }

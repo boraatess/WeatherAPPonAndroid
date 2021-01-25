@@ -74,7 +74,6 @@
             android:layout_marginLeft="150dp"
             android:src="@drawable/cloudcomputing"
             >
-
         </ImageView>
 
         <TextView
@@ -84,9 +83,7 @@
             android:hint="temperature"
             android:textSize="30sp"
             android:layout_marginTop="400dp"
-            android:layout_marginLeft="100dp"
-
-             />
+            android:layout_marginLeft="100dp" />
 
         <TextView
             android:id="@+id/tempmax"
@@ -95,16 +92,14 @@
             android:hint="temperature max"
             android:textSize="18sp"
             android:layout_marginTop="470dp"
-            android:layout_marginLeft="30dp"
-
-            />
+            android:layout_marginLeft="30dp" />
 
             <TextView
                 android:id="@+id/pressure"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="pressure"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:layout_marginTop="520dp"
                 android:layout_marginLeft="30dp"
 
@@ -115,8 +110,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:hint="feels like"
-                android:textSize="24sp"
-                android:layout_marginTop="520dp"
+                android:textSize="18sp"
+                android:layout_marginTop="470dp"
                 android:layout_marginLeft="270dp" />
 
             <TextView
@@ -126,8 +121,29 @@
                 android:hint="humidity"
                 android:textSize="18sp"
                 android:layout_marginTop="520dp"
-                android:layout_marginLeft="160dp"/>
+                android:layout_marginLeft="270dp"/>
 
-        </RelativeLayout>
+        <Button
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:text="My Favorites"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="600dp"
+            android:background="@color/colorAccent"
+            android:onClick="MyFavoriteScreen"
+            >
+        </Button>
+
+        <Button
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/ic_baseline_add_box_24"
+            android:layout_marginTop="590dp"
+            android:layout_marginLeft="30dp"
+            android:onClick="AddMyFavorite"
+            >
+        </Button>
+
+    </RelativeLayout>
 
 </LinearLayout>

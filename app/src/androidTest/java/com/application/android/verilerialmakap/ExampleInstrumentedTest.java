@@ -1,4 +1,4 @@
-package com.example.verilerialmakap;
+package com.application.android.verilerialmakap;
 
 import android.content.Context;
 

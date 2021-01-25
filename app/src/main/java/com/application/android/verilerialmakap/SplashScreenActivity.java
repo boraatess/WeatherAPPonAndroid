@@ -1,4 +1,4 @@
-package com.example.verilerialmakap;
+package com.application.android.verilerialmakap;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
